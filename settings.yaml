@@ -1,0 +1,60 @@
+---
+
+useEqualHeights: true
+language: en
+background:
+  image: https://wallpapercave.com/wp/wp10117161.jpg
+  blur: md # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+  brightness: 100 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  opacity: 100 # 0-100
+  
+
+statusStyle: "dot"
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: 
+# headerStyle: boxedWidgets
+headerstyle: underlined
+
+layout:
+
+  Calendar:
+    style: 
+    columns: 
+    useEqualHeights: true
+    
+  Intel Nuccy:    
+    style:
+    columns: 
+    icon: linux.png
+    
+  Proxmox:
+    style: row
+    columns: 2
+    icon: proxmox.png
+    initiallyCollapsed: true
+    
+  Media Management:
+    style: column
+    columns: 2
+    icon:
+    
+  Server Managment:
+    style: column
+    columns: 2
+    icon: 
+    
+  Home Control:
+    style: column
+    columns: 2
+    icon: 
+    
+  Hosting Services:
+    style: column
+    columns: 2
+    useEqualHeights: true
+
+  Bookmarks:
+    style: row
+    columns: 2

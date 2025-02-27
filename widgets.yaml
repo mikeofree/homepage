@@ -1,0 +1,34 @@
+
+- logo:
+    icon: https://media.tenor.com/fYg91qBpDdgAAAAC/bongo-cat-transparent.gif
+- glances:
+    url: 
+    version: 4
+    label: Nuccy :')
+    cpu: true
+    mem: true
+    cputemp: true
+    uptime: true
+- resources:
+    label: NVMe
+    disk: /
+    expanded: true
+- resources:
+    label: Nasus
+    disk: /mnt/nasus
+    expanded: true
+- search:
+    provider: google
+    target: _blank
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: long
+      hour12: true
+- weatherapi:
+    label: 
+    latitude: 
+    longitude: 
+    units: imperial
+    apiKey: 
+    cache: 5 

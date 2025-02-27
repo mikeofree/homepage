@@ -1,0 +1,500 @@
+
+- Calendar:
+    - Calendar:
+        widget:
+            type: calendar
+            firstDayInWeek: sunday # optional - defaults to monday
+            view: monthly # optional - possible values monthly, agenda
+            maxEvents: 10 # optional - defaults to 10
+            showTime: true # optional - show time for event happening today - defaults to false
+            timezone: America/Los_Angeles # optional and only when timezone is not detected properly (slightly slower performance) - force timezone for ical events (if it's the same - no change, if missing or different in ical - will be converted to this timezone)
+            integrations: # optional
+              - type: radarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
+                service_group: Media Management # group name where widget exists
+                service_name: Radarr # service name for that widget
+                color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
+                params: # optional - additional params for the service
+                unmonitored: true # optional - defaults to false, used with *arr stack
+              - type: sonarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
+                service_group: Media Management # group name where widget exists
+                service_name: Sonarr # service name for that widget
+                color: yellow # optional - defaults to pre-defined color for the service (teal for sonarr)
+                params: # optional - additional params for the service
+                unmonitored: true # optional - defaults to false, used with *arr stack
+    - Events:
+        widget:
+            type: calendar
+            view: agenda
+            maxEvents: 10 # optional - defaults to 10
+           # showTime: true # optional - show time for event happening today - defaults to false
+            previousDays: 3 # optional - shows events since three days ago - defaults to 0
+            integrations: # optional
+              - type: radarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
+                service_group: Media Management # group name where widget exists
+                service_name: Radarr # service name for that widget
+                color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
+                params: # optional - additional params for the service
+                unmonitored: true # optional - defaults to false, used with *arr stack
+              - type: sonarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
+                service_group: Media Management # group name where widget exists
+                service_name: Sonarr # service name for that widget
+                color: yellow # optional - defaults to pre-defined color for the service (teal for sonarr)
+                params: # optional - additional params for the service
+                unmonitored: true # optional - defaults to false, used with *arr stack
+                
+####################################################################################################################################################################################################################################################################################                
+- Intel Nuccy:                
+    - Portainer:
+        id: col-big
+        icon: portainer.png
+        href: 
+        container: portainer
+        server: my-docker
+        widget:
+          type: portainer
+          url: 
+          env: 
+          key: 
+    - NGINX Proxy Manager:
+        id: col-big
+        icon: nginx-proxy-manager.png
+        href: 
+        container: nginx-app-1
+        server: my-docker
+        widget:
+            type: npm
+            url: 
+            username: 
+            password: 
+    - UniFi Gateway Max:
+        id: col-big
+        icon: unifi.png
+        href: 
+        widget:
+            type: unifi
+            url: 
+            username: 
+            password: 
+    - Uptime Kuma:
+        id: col-big
+        icon: uptime-kuma.png
+        href: 
+        container: uptime-kuma
+        server: my-docker
+        widget:
+            type: uptimekuma
+            url: 
+            slug: intelnuccy
+    - Synology NAS:
+        id: col-big
+        icon: synology.png
+        href: 
+        widget:
+            type: diskstation
+            url: 
+            username: remote_stats
+            password: 
+            volume: volume_1
+    - Tailscale:
+        id: col-big
+        icon: tailscale-light.png
+        href: 
+        container: portainer
+        server: my-docker
+        widget:
+            type: tailscale
+            deviceid: 
+            key: 
+    - Glutetun:
+        id: col-big
+        icon: gluetun.png
+        href:
+        server: my-docker
+        container: gluetun-gluetun-1
+        widget:
+          type: gluetun
+          url: 
+    - Wan IP:
+        id: col-big
+        icon: flathub.png
+        widget:
+         type: customapi
+         url: http://ip-api.com/json
+         refreshInterval: 10000 # optional - in milliseconds, defaults to 10s
+         method: GET
+         mappings:
+         - field: 'query'
+           label: WAN IP
+           format: text         
+         - field: 'city'
+           label: City
+           format: text
+         - field: 'regionName'
+           label: State
+           format: text
+    - Hoarder:
+        icon: hoarder-light.png
+        href: 
+        container: hoarder-web-1
+        server: my-docker
+    - Jellyfin:
+        icon: jellyfin.png
+        href: 
+        description: Media Server
+        server: my-docker
+        container: jellyfin
+        widget:
+          type: jellyfin
+          url: 
+          key: 
+          enableBlocks: true # optional, defaults to false
+          enableNowPlaying: true # optional, defaults to true
+           
+####################################################################################################################################################################################################################################################################################
+
+- Proxmox:
+    - Proxmox (.5):
+        id: col-big
+        icon: proxmox.png
+        href: 
+        description: Proxmox Server
+        widget:
+         type: proxmox
+         url: 
+         username: api@pam!home
+         password: 
+    - iVentoy PXE:
+        id: col-big
+        icon: tux.png
+        href: 
+        description: PXE Boot
+         
+    - LXC-H Portainer:
+        id: col-big
+        icon: portainer.png
+        href: 
+        container: portainer
+        server: lxc-homebridge
+    - LXC-H FileBrowser:
+        id: col-big
+        icon: filebrowser.png
+        href: 
+        server: lxc-homebridge
+        container: filebrowser
+    - LXC-S Portainer:
+        id: col-big
+        icon: portainer.png
+        href: 
+        container: portainer
+        server: lxc-scrypted
+    - LXC-S FileBrowser:
+        id: col-big
+        icon: filebrowser.png
+        href: 
+        container: filebrowser
+        server: lxc-scrypted
+    - LXC-F Portainer:
+        id: col-big
+        icon: portainer.png
+        href: 
+        container: portainer
+        server: lxc-frigate-nvr
+    - LXC-F FileBrowser:
+        id: col-big
+        icon: filebrowser.png
+        href: 
+        server: lxc-frigate-nvr
+        container: filebrowser
+
+
+####################################################################################################################################################################################################################################################################################
+####################################################################################################################################################################################################################################################################################            
+            
+- Media Management:
+    - SABnzbd:
+        icon: sabnzbd.png
+        href: 
+        server: my-docker
+        container: sabnzbd
+        widget:
+          type: sabnzbd
+          url: 
+          key: 
+    - Radarr:
+        id: col-big
+        icon: radarr.png
+        href: 
+        server: my-docker
+        container: radarr
+        widget:
+            type: radarr
+            url: 
+            key: 
+            enableQueue: true # optional, defaults to false
+    - Sonarr:
+        id: col-big
+        icon: sonarr.png
+        href: 
+        server: my-docker
+        container: sonarr
+        widget:
+            type: sonarr
+            url: 
+            key: 
+            enableQueue: true # optional, defaults to false
+    - Navidrome:
+        id: col-big
+        icon: navidrome.png
+        href: 
+        server: my-docker
+        container: lidarr-navidrome-1
+    - Jellyseerr:
+        href: 
+        id: col-big
+        icon: jellyseerr.png
+        server: my-docker
+        container: jellyseerr
+    - Lidarr:
+        id: col-big
+        icon: lidarr.png
+        href: 
+        server: my-docker
+        container: lidarr
+    - Lidatube:
+        id: col-big
+        icon: logstash.png
+        href: 
+        server: my-docker
+        container: lidatube
+    - Picard:
+        id: col-big
+        icon: payload-light.png
+        href: 
+        server: my-docker
+        container: lidatube
+    - qBittorrent:
+        id: col-big
+        icon: qbittorrent.png
+        href: 
+        server: my-docker
+        container: qbittorrent
+    - Prowlarr:
+        id: col-big
+        icon: prowlarr.png
+        href: 
+        server: my-docker
+        container: prowlarr
+    - Notifiarr:
+        id: col-big
+        icon: notifiarr.png
+        href: 
+        server: my-docker
+        container: notifiarr
+    - Notifiarr Web:
+        id: col-big
+        icon: notifiarr.png
+        href: 
+        
+####################################################################################################################################################################################################################################################################################        
+        
+- Server Managment:
+    - Watchtower:
+        icon: docker.png
+        href: 
+        container: watchtower
+        server: my-docker
+        widget:
+          type: watchtower
+          url: 
+          key: 
+    - Beszel:
+        id: col-big
+        icon: ntfy.png
+        href: 
+        container: beszel
+        server: my-docker
+        widget:
+          type: beszel
+          url: 
+          username: 
+          password: 
+          systemId: 
+          version: 
+          fields: ["disk", "network"]
+    - Scrutiny:
+        id: col-big
+        icon: scrutiny.png
+        href: 
+        container: scrutiny
+        server: my-docker
+        widget:
+          type: scrutiny
+          url: 
+    - Guacamole:
+        id: col-big
+        icon: guacamole.png
+        href: 
+        container: guacamole
+        server: my-docker
+    - FileBrowser:
+        id: col-big
+        icon: filebrowser.png
+        href: 
+        container: filebrowser
+        server: my-docker
+    - Glances:
+        id: col-big
+        icon: glances.png
+        href: 
+        container: glances
+        server: my-docker
+    - Dozzle:
+        id: col-big
+        icon: dozzle.png
+        href: 
+        container: dozzle
+        server: my-docker  
+    - Cloudflare DDNS:
+        id: col-big
+        icon: cloudflare.png
+        href: 
+        container: ddns-updater
+        server: my-docker
+    - fail2ban:
+        id: col-big
+        icon: crowdsec.svg
+        container: fail2ban
+        server: my-docker
+    - Cockpit:
+        id: col-big
+        icon: cockpit-light.png
+        href: 
+    - Olivetin:
+        id: col-big
+        icon: olivetin-light.png
+        href: 
+        server: my-docker
+        container: olivetin
+    - vaultwarden:
+        id: col-big
+        icon: vaultwarden.png
+        href: 
+        server: my-docker
+        container: vaultwarden
+        
+####################################################################################################################################################################################################################################################################################        
+        
+- Home Control:
+    - Homebridge (.6):
+        icon: homebridge.png
+        href: 
+        server: lxc-homebridge
+        container: homebridge
+        showStat: true
+        widget:
+          type: homebridge
+          url: 
+          username: 
+          password: 
+    - Scrypted (.7):
+        id: col-big
+        icon: scrypted.png
+        href: 
+        server: lxc-scrypted
+        container: scrypted 
+    - Frigate NVR (.8):
+        id: col-big
+        icon: frigate.png
+        href: 
+        server: lxc-frigate-nvr
+        container: frigate
+        showStat: true
+    - Home Assistant (.9):
+        id: col-big
+        icon: home-assistant.png
+        href: 
+##        widget:
+##            type: homeassistant
+##            url: 
+##            key: 
+    - Pi-Hole:
+        id: col-big
+        icon: pi-hole.png
+        href: 
+        server: my-docker
+        container: pihole
+     #   widget:
+      #    type: pihole
+       ### key: 
+       #   key: 
+    - Speed Tracker:
+        icon: speedtest-tracker.png
+        href: 
+        server: my-docker
+        container: speedtest-tracker
+        widget:
+          type: speedtest
+          url: 
+          
+####################################################################################################################################################################################################################################################################################          
+          
+- Hosting Services:
+    - Wordpress:
+        icon: wordpress.png
+        href: 
+        server: my-docker
+        container: wordpress-wordpress-1
+        id: col-big
+    - :
+        icon: wordpress.png
+        href: 
+        id: col-big
+    - MySQL:
+        icon: mysql.png
+        href: 
+        server: my-docker
+        container: wordpress-db-1
+        id: col-big
+    - postgreSQL:
+        icon: postgres.png
+        href: 
+        server: my-docker
+        container: postgreSQL
+        id: col-big
+    - phpMyAdmin:
+        icon: phpmyadmin.png
+        href: 
+        description: MySQL Manager
+        server: my-docker
+        container: phpmyadmin
+        id: col-big
+    - pgAdmin:
+        icon: pgadmin.png
+        href: 
+        description: PostgreSQL Manager
+        server: my-docker
+        container: pgadmin
+        id: col-big      
+    - (Java):
+        id: col-big
+        icon: minecraft.png
+        href: 
+        container: minecraft-mc-1
+        server: my-docker
+        showStats: true
+        widget:
+          type: minecraft
+          url: 
+    - (Bedrock):
+        id: col-big
+        icon: minecraft.png
+        href: 
+        container: minecraft-mc-2
+        server: my-docker
+        showStats: true
+        widget:
+            type: gamedig
+            serverType: minecraft
+            url: 
+            fields: ["status", "players"]
+####################################################################################################################################################################################################################################################################################        
